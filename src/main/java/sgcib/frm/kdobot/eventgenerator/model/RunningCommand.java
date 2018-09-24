@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-public class CommandStatus {
+public class RunningCommand {
     private final String jobId;
 
     @JsonCreator
-    public CommandStatus(@JsonProperty("jobId") String jobId) {
+    public RunningCommand(@JsonProperty("jobId") String jobId) {
         this.jobId = jobId;
     }
 
@@ -17,19 +17,11 @@ public class CommandStatus {
         return jobId;
     }
 
-    public boolean isFinished(){
-        return true;
-    }
-
-    public boolean isLate(){
-        return false;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CommandStatus that = (CommandStatus) o;
+        RunningCommand that = (RunningCommand) o;
         return Objects.equals(jobId, that.jobId);
     }
 
@@ -37,5 +29,4 @@ public class CommandStatus {
     public int hashCode() {
         return Objects.hash(jobId);
     }
-
 }

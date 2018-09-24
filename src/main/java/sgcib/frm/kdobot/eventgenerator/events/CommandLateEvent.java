@@ -3,24 +3,17 @@ package sgcib.frm.kdobot.eventgenerator.events;
 import org.springframework.context.ApplicationEvent;
 import sgcib.frm.kdobot.eventgenerator.model.CommandStatus;
 
-import java.util.List;
-
-public class CommandStatusEvent extends ApplicationEvent {
+public class CommandLateEvent extends ApplicationEvent {
 
     private final CommandStatus commandStatus;
-    private final List<Object> users;
 
-    public CommandStatusEvent(Object source, CommandStatus commandStatus, List<Object>users) {
+    public CommandLateEvent(Object source, CommandStatus commandStatus) {
         super(source);
         this.commandStatus = commandStatus;
-        this.users = users;
     }
 
     public CommandStatus getCommandStatus() {
         return commandStatus;
     }
 
-    public List<Object> getUsers() {
-        return users;
-    }
 }
